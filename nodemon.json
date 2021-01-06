@@ -1,0 +1,10 @@
+{
+    "env":{
+
+        "MONGO_URI":"mongodb+srv://beast_db:rczibpLU9nTxtCT9@cluster0.kxvgm.mongodb.net/db_1?retryWrites=true&w=majority",
+        "JWT_KEY":"hkadjfjadfhi889739485012@@#@$@&$*$*(*@$&*",
+        "EMAIL":"antitheftmobileapp@gmail.com",
+        "EMAIL_PASS":"clgProj@Beast@Falcon",
+        "PORT":""
+    }
+}
