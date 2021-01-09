@@ -13,43 +13,18 @@ const Geolocation=require('../models/geolocation');
 router.patch('/update/:_id',(req,res,next)=>{
    
     const id = req.params._id;
-    // if(req.body.hasOwnProperty("password")){
     
-    // bcrypt.hash(req.body.password,10,(err,hash)=>{
-
-    //         req.body.password=hash;
-        
-    //             User.update({_id:req.body._id},{$set:req.body})
-    //                 .exec()
-    //                 .then(result=>{
-    //                         console.log(result)
-    //                         res.status(200).json(result);
-    //                     })
-    //                 .catch(err=>{
-    //                         console.log(err);
-    //                         res.status(500).json({error:err});
-
-
-    //             });
-
-    // });
-
-
-    // }
-
-    // else{
-
 
         User.update({_id:id},{$set:req.body})
                     .exec()
                     .then(result=>{
-                            console.log(result)
+                           
                             res.status(200).json({
                                 message:"successfull"
                             });
                         })
                     .catch(err=>{
-                            console.log(err);
+                            
                             res.status(500).json({error:err});
 
 
@@ -81,7 +56,7 @@ router.patch('/update/:_id',(req,res,next)=>{
                 });
              })
              .catch(err=>
-                // console.log(err)
+                
                 res.status(500).json({
                     error:err,
                     message:err.message
@@ -91,27 +66,6 @@ router.patch('/update/:_id',(req,res,next)=>{
                
     
 
-    // router.patch('/device/:_id',(req,res,next)=>{
-    //     const id = req.params.id;
-
-    //     const Device=new Device({
-    //         _id:id,
-    //         devicename:req.body.devicename,
-    //         battery:req.body.battery,
-    //         network:req.body.network,
-    //         lock:req.body.lock,
-    //         alert:req.body.alert,
-    //         format:req.body.format
-    //     })
-    //     Device
-    //         .save()
-    //         .then(result=>{
-    //              console.log(result);
-    //          })
-    //          .catch(err=>console.log(err));
-    // });
-               
-       
     
         
                 
@@ -123,22 +77,15 @@ router.patch('/update/:_id',(req,res,next)=>{
 
 router.patch('/device/:_id',(req,res,next)=>{
     const id = req.params._id;
-    // const data={
-    //     devicename:req.body.devicename,
-    //     battery:req.body.battery,
-    //     network:req.body.network,
-    //     lock:req.body.lock,
-    //     alert:req.body.alert,
-    //     format:req.body.format
-    // }
+    
     Device.update({_id:id},{$set:req.body})
             .exec()
             .then(result=>{
-                console.log(result)
+            
                 res.status(200).json(result);
             })
             .catch(err=>{
-                console.log(err);
+               
                 res.status(500).json({error:err});
 
 
@@ -186,11 +133,11 @@ router.patch('/geolocation/:_id',(req,res,next)=>{
     Geolocation.update({_id:id},{$set:req.body})
             .exec()
             .then(result=>{
-                console.log(result)
+                
                 res.status(200).json(result);
             })
             .catch(err=>{
-                console.log(err);
+                
                 res.status(500).json({error:err});
 
 

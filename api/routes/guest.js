@@ -14,11 +14,10 @@ router.get('/device/:_id',(req,res,next)=>{
     Device.findById(id)
             .exec()
             .then(doc=>{
-                // console.log(doc)
+                
                 res.status(200).json(doc);
             })
             .catch(err=>{
-                console.log(err);
                 res.status(500).json({error:err});
 
 
@@ -35,11 +34,9 @@ router.get('/geolocation/:_id',(req,res,next)=>{
     Geolocation.findById(id)
             .exec()
             .then(doc=>{
-                // console.log(doc)
                 res.status(200).json(doc);
             })
             .catch(err=>{
-                console.log(err);
                 res.status(500).json({error:err});
 
 

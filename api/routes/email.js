@@ -36,7 +36,7 @@ const data=req.body.email!=''?{email:req.body.email}:{mobile_number:req.body.mob
                     subject: 'Recover password',
                     text:'Hi '+user[0].username+'\n\nYou are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-                    'http://localhost:3000/page/password/'+ user[0]._id + '\n\n' +
+                    'https://jexinjames-antitheft-3463.zeet.app/page/password/'+ user[0]._id + '\n\n' +
                     'If you did not request this, please ignore this email and your password will remain unchanged.\n\n\n'+
                     'Thank you'
                   };
@@ -85,7 +85,7 @@ router.post('/auth',(req,res,next)=>{
                       subject: 'Reset authentication key',
                       text:'Hi '+user[0].username+'\n\nYou are receiving this because you have requested to change authentication key.\n\n' +
                       'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-                      'http://localhost:3000/page/authentication/'+ user[0]._id + '\n\n' +
+                      'https://jexinjames-antitheft-3463.zeet.app/page/authentication/'+ user[0]._id + '\n\n' +
                       'Thank you'
                     };
   
@@ -131,7 +131,7 @@ router.post('/auth',(req,res,next)=>{
                         subject: 'Reset password',
                         text:'Hi '+user[0].username+'\n\nYou are receiving this because you have requested to change password.\n\n' +
                         'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-                        'http://localhost:3000/page/password/'+ user[0]._id + '\n\n' +
+                        'https://jexinjames-antitheft-3463.zeet.app/page/password/'+ user[0]._id + '\n\n' +
                         'Thank you'
                       };
     

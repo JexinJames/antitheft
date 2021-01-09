@@ -12,16 +12,22 @@ router.get('/password/:_id',(req,res,next)=>{
     const confirm_password=req.query.confirm_password;
     
     if(password!=confirm_password){
-        res.status(409).json({
-            error:"password and confirm password dont match"
-        })
+
+        res.render('error.ejs', {
+            status:409,
+            message:"Incorrect input",
+            info:"Password and confirm password dont match"
+        }) 
     }
     else{
 
         if(!password.match(/^.{5,10}$/)){
-            return res.status(409).json({
-                message:"Password length should be 5-10"
-            })
+           
+            res.render('error.ejs', {
+                status:409,
+                message:"Invalid input",
+                info:"Password length should be 5-10"
+            }) 
         }
         else{
 
@@ -30,11 +36,20 @@ router.get('/password/:_id',(req,res,next)=>{
                 User.update({_id:_id},{$set:{password:hash}})
                 .exec()
                 .then(result=>{
-                    res.status(200).json({message:"Password successfully updated"});
+                   
+                    res.render('success.ejs', { 
+                        message:"Password successfully updated",
+                        info:"Please login to your account"
+                    }) 
                 })
                 .catch(err=>{
                     console.log(err);
-                    res.status(500).json({error:err});
+                    
+                    res.render('error.ejs', {
+                        status:500,
+                        message:"something went wrong",
+                        info:"Please try again later"
+                    }) 
                 })
 
             })
@@ -54,32 +69,42 @@ router.get('/auth/:_id',(req,res,next)=>{
     const confirm_authentication=req.query.confirm_authentication;
     
     if(authentication!=confirm_authentication){
-        res.status(409).json({
-            error:"authentication and confirm authentication dont match"
-        })
+       
+        res.render('error.ejs', {
+            status:409,
+            message:"Incorrect input",
+            info:"Authentication and confirm authentication dont match"
+        }) 
     }
     else{
 
         if(!authentication.match(/^.{5,10}$/)){
-            return res.status(409).json({
-                message:"authentication length should be 5-10"
+            
+            res.render('error.ejs', {
+                status:409,
+                message:"Invalid input",
+                info:"Authentication key length should be 5-10"
             })
         }
         else{
 
-            // bcrypt.hash(password,10,(err,hash)=>{
+           
 
                 User.update({_id:_id},{$set:{authentication:authentication}})
                 .exec()
                 .then(result=>{
-                    res.status(200).json({message:"Authentication key successfully updated"});
+                  
+                    res.render('success.ejs', { 
+                        message:"Authentication key successfully updated",
+                        info:"Please logout and login to your account"
+                    }) 
                 })
                 .catch(err=>{
-                    console.log(err);
+                    
                     res.status(500).json({error:err});
                 })
 
-            // })
+            
 
 
         }

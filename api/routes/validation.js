@@ -70,7 +70,7 @@ router.post('/signup',(req,res,next)=>{
         
             user.save()
                 .then(result=>{
-                    console.log(result);
+                    
                     const token=jwt.sign({
                         _id:result._id
                     },
@@ -87,12 +87,13 @@ router.post('/signup',(req,res,next)=>{
                         _id:result._id,
                         username:result.username,
                         email:result.email,
-                        mobile_number:result.mobile_number
+                        mobile_number:result.mobile_number,
+                        authentication:result.authentication
                         }
                     });
                 })
                 .catch(err=>{
-                    console.log(err);
+                   
                     res.status(500).json({
                         error:err,
                         message:err.message
@@ -145,7 +146,8 @@ router.post('/login',(req,res,next)=>{
                         _id:user[0]._id,
                         username:user[0].username,
                         email:user[0].email,
-                        mobile_number:user[0].mobile_number
+                        mobile_number:user[0].mobile_number,
+                        authentication:user[0].authentication
                         }
                     });
                 }
@@ -156,7 +158,7 @@ router.post('/login',(req,res,next)=>{
             })
         })
         .catch(err=>{
-            console.log(err);
+            
             res.status(500).json({
                 error:err
             });
