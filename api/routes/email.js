@@ -38,7 +38,7 @@ const data=req.body.email!=''?{email:req.body.email}:{mobile_number:req.body.mob
           },
           process.env.JWT_KEY,
           {
-             expiresIn:"15m"
+             expiresIn:"10m"
           });
 
 
@@ -50,7 +50,7 @@ const data=req.body.email!=''?{email:req.body.email}:{mobile_number:req.body.mob
                     text:'Hi '+user[0].username+'\n\nYou are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
                     'https://jexinjames-antitheft-3463.zeet.app/page/password/'+ user[0]._id +'?token='+token+ '\n\n' +
-                    'If you did not request this, please ignore this email and your password will remain unchanged.\nNote:The above link expires after 15 minutes\n\n\n'+
+                    'If you did not request this, please ignore this email and your password will remain unchanged.\nNote:The above link expires after 10 minutes\n\n\n'+
                     'Thank you'
                   };
 
@@ -99,7 +99,7 @@ router.post('/auth',(req,res,next)=>{
             },
             process.env.JWT_KEY,
             {
-               expiresIn:"15m"
+               expiresIn:"10m"
             });
 
 
@@ -112,7 +112,7 @@ router.post('/auth',(req,res,next)=>{
                       subject: 'Reset authentication key',
                       text:'Hi '+user[0].username+'\n\nYou are receiving this because you have requested to change authentication key.\n\n' +
                       'Please click on the following link, or paste this into your browser to complete the process:\n' +
-                      'https://jexinjames-antitheft-3463.zeet.app/page/authentication/'+ user[0]._id +'?token='+token+ '\n' +'Note:The above link expires after 15 minutes\n\n\n'+
+                      'https://jexinjames-antitheft-3463.zeet.app/page/authentication/'+ user[0]._id +'?token='+token+ '\n' +'Note:The above link expires after 10 minutes\n\n\n'+
                       'Thank you'
                     };
   
@@ -159,7 +159,7 @@ router.post('/auth',(req,res,next)=>{
               },
               process.env.JWT_KEY,
               {
-                 expiresIn:"15m"
+                 expiresIn:"10m"
               });
   
 
@@ -169,7 +169,7 @@ router.post('/auth',(req,res,next)=>{
                         subject: 'Reset password',
                         text:'Hi '+user[0].username+'\n\nYou are receiving this because you have requested to change password.\n\n' +
                         'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
-                        'https://jexinjames-antitheft-3463.zeet.app/page/password/'+ user[0]._id +'?token='+token+ '\n' +'Note:The above link expires after 15 minutes\n\n\n'+
+                        'https://jexinjames-antitheft-3463.zeet.app/page/password/'+ user[0]._id +'?token='+token+ '\n' +'Note:The above link expires after 10 minutes\n\n\n'+
                         'Thank you'
                       };
     
