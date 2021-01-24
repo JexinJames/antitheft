@@ -26,6 +26,14 @@ const deviceSchema=mongoose.Schema({
         type:Boolean,
         required:true
         
+    },
+    time:{
+        type:String,
+        required:true
+    },
+    date:{
+        type:String,
+        required:true
     }
 });
 

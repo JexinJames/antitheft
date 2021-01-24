@@ -77,6 +77,11 @@ router.patch('/update/:_id',(req,res,next)=>{
 
 router.patch('/device/:_id',(req,res,next)=>{
     const id = req.params._id;
+
+    var myDateString = Date();
+    var date=myDateString.split(" ");
+    req.body.time=myDateString.split(" ")[4];
+    req.body.date=date[0]+" "+date[1]+" "+date[2];
     
     Device.update({_id:id},{$set:req.body})
             .exec()

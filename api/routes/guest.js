@@ -46,6 +46,42 @@ router.get('/geolocation/:_id',(req,res,next)=>{
    
 });
 
+router.patch('/alert/:_id',(req,res,next)=>{
+    const id = req.params._id;
+    
+  
+    Device.findById(id)
+            .exec()
+            .then(doc=>{
+                
+                
+                Device.update({_id:id},{$set:{alert:!doc.alert}})
+                .exec()
+                .then(result=>{
+                
+                    res.status(200).json(result);
+                })
+                .catch(err=>{
+                   
+                    res.status(500).json({error:err});
+    
+    
+                });
+
+
+
+            })
+            .catch(err=>{
+                res.status(500).json({error:err});
+
+
+            });
+
+    
+    
+
+   
+});
 
 
 module.exports = router;
