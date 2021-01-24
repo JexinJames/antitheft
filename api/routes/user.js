@@ -80,20 +80,20 @@ router.patch('/update/:_id',(req,res,next)=>{
 router.patch('/device/:_id',(req,res,next)=>{
     const id = req.params._id;
 
-    var myDateString = Date();
-    var date=myDateString.split(" ");
+    // var myDateString = Date();
+    // var date=myDateString.split(" ");
     // req.body.time=myDateString.split(" ")[4];
     // req.body.date=date[0]+" "+date[1]+" "+date[2];
 
-    const data={
-        devicename:req.body.devicename,
-        battery:req.body.battery,
-        network:req.body.network,
-        time:myDateString.split(" ")[4],
-        date:date[0]+" "+date[1]+" "+date[2]
-    }
+    // const data={
+    //     devicename:req.body.devicename,
+    //     battery:req.body.battery,
+    //     network:req.body.network,
+    //     time:myDateString.split(" ")[4],
+    //     date:date[0]+" "+date[1]+" "+date[2]
+    // }
     
-    Device.update({_id:id},{$set:data})
+    Device.update({_id:id},{$set:req.body})
             .exec()
             .then(result=>{
             
