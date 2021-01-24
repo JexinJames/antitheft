@@ -46,7 +46,9 @@ router.patch('/update/:_id',(req,res,next)=>{
             network:req.body.network,
             lock:false,
             alert:false,
-            format:false
+            format:false,
+            time:"",
+            date:""
         })
         device
             .save()
