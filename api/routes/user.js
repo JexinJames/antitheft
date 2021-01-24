@@ -47,8 +47,8 @@ router.patch('/update/:_id',(req,res,next)=>{
             lock:false,
             alert:false,
             format:false,
-            time:"",
-            date:""
+            time:"not available",
+            date:"not available"
         })
         device
             .save()
